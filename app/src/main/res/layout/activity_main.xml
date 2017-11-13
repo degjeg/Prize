@@ -1,0 +1,41 @@
+<!-- 截屏范围 -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_water"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/et_url"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="http://www.163.com"
+        />
+
+    <Button
+        android:id="@+id/btn_go1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="go1"/>
+
+    <Button
+        android:id="@+id/btn_go2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="go2"/>
+
+    <Button
+        android:id="@+id/btn_go3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="go3"/>
+
+    <Button
+        android:id="@+id/btn_go4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="go4"/>
+
+</LinearLayout>
