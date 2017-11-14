@@ -12,6 +12,7 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ScrollView;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -26,6 +27,7 @@ public class WebActivity extends Activity {
 
     int viewWidth, viewHeight;
     int angle;
+    View webViewContainer;
 
     public static void go(Context context, @NotNull String url, int angle) {
         Intent intent = new Intent(context, WebActivity.class);
@@ -42,57 +44,59 @@ public class WebActivity extends Activity {
 
         setContentView(R.layout.activity_web);
         View root = findViewById(R.id.rl);
+        webViewContainer = findViewById(R.id.web_view);
+        ScrollView scrollView = findViewById(R.id.h_scrollView);
         webView = findViewById(R.id.web_view);
 
         String url = getIntent().getStringExtra("url");
         angle = getIntent().getIntExtra("angle", 0);
 
-        findViewById(R.id.h_scrollView).setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View arg0, MotionEvent arg1) {
-                return true;
-            }
-        });
+//        findViewById(R.id.h_scrollView).setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View arg0, MotionEvent arg1) {
+//                return true;
+//            }
+//        });
 
         webView.loadUrl(url);
 
 
         webView.post(() -> {
-            viewWidth = root.getWidth();
-            viewHeight = root.getHeight();
+            viewWidth = scrollView.getWidth();
+            viewHeight = scrollView.getHeight();
 
             Log.d(TAG, "angle" + webView.getRotation() + " (" + viewWidth + " x " + viewHeight);
 
             if (angle == 0) {
-                webView.setRotation(0);
-                webView.getLayoutParams().width = viewWidth;
-                webView.getLayoutParams().height = viewHeight;
-                webView.requestLayout();
-                webView.setTranslationX(0);
-                webView.setTranslationY(0);
+                webViewContainer.setRotation(0);
+                webViewContainer.getLayoutParams().width = viewWidth;
+                webViewContainer.getLayoutParams().height = viewHeight;
+                webViewContainer.requestLayout();
+                webViewContainer.setTranslationX(0);
+                webViewContainer.setTranslationY(0);
 
 
             } else if (angle == 90) {
-                webView.setRotation(90);
-                webView.getLayoutParams().width = viewHeight;
-                webView.getLayoutParams().height = viewWidth;
-                webView.requestLayout();
+                webViewContainer.setRotation(90);
+                webViewContainer.getLayoutParams().width = viewHeight;
+                webViewContainer.getLayoutParams().height = viewWidth;
+                webViewContainer.requestLayout();
                 int diff = (viewHeight - viewWidth) / 2;
-                webView.setTranslationX(-diff);
-                webView.setTranslationY(diff);
+                webViewContainer.setTranslationX(-diff);
+                webViewContainer.setTranslationY(diff);
 
 
 
             } else if (angle == 180) {
 
             } else if (angle == 270) {
-                webView.setRotation(270);
-                webView.getLayoutParams().width = viewHeight;
-                webView.getLayoutParams().height = viewWidth;
-                webView.requestLayout();
+                webViewContainer.setRotation(270);
+                webViewContainer.getLayoutParams().width = viewHeight;
+                webViewContainer.getLayoutParams().height = viewWidth;
+                webViewContainer.requestLayout();
                 int diff = (viewHeight - viewWidth) / 2;
-                webView.setTranslationX(-diff);
-                webView.setTranslationY(diff);
+                webViewContainer.setTranslationX(-diff);
+                webViewContainer.setTranslationY(diff);
 
             }
             webView.post(() -> {
