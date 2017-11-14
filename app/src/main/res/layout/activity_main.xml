@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    >
 
     <EditText
         android:id="@+id/et_url"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="http://www.163.com"
+        android:text="http://www.hn1357.com"
         />
 
     <Button
@@ -37,5 +37,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="go4"/>
-
+    <Button
+        android:id="@+id/btn_go5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="旋转"/>
 </LinearLayout>

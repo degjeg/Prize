@@ -2,15 +2,14 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/rl"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="30dp">
+    android:layout_height="match_parent">
 
     <prize.com.prize1.LockableScrollView
         android:id="@+id/h_scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:isScrollContainer="true"
-        android:background="#abcdef">
+        android:background="#abcdef"
+        android:isScrollContainer="true">
 
         <FrameLayout
             android:id="@+id/container"

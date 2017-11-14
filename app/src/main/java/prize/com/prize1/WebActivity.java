@@ -3,6 +3,7 @@ package prize.com.prize1;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -86,7 +87,6 @@ public class WebActivity extends Activity {
                 webViewContainer.setTranslationY(diff);
 
 
-
             } else if (angle == 180) {
 
             } else if (angle == 270) {
@@ -99,6 +99,10 @@ public class WebActivity extends Activity {
                 webViewContainer.setTranslationY(diff);
 
             }
+
+
+
+
             webView.post(() -> {
                         webView.loadUrl(url);
                         webView.getSettings().setJavaScriptEnabled(true);
@@ -113,6 +117,15 @@ public class WebActivity extends Activity {
 
                     }
             );
+
+//            webView.postDelayed(() -> {
+//                webView.loadUrl("javascript:document.getElementById('loginName').value='danger'");
+//            }, 3000);
+//
+//            webView.postDelayed(() -> {
+//                webView.loadUrl("javascript:document.getElementById('loginName').value='hahaha'");
+//            }, 6000);
+
         });
     }
 
