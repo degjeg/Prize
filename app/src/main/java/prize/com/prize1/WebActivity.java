@@ -15,6 +15,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ScrollView;
+import android.widget.Toast;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -64,10 +65,11 @@ public class WebActivity extends Activity {
 
 
         webView.post(() -> {
-            viewWidth = scrollView.getWidth();
-            viewHeight = scrollView.getHeight();
+            View sizeView = findViewById(android.R.id.content);
+            viewWidth = sizeView.getWidth();
+            viewHeight = sizeView.getHeight();
 
-            Log.d(TAG, "angle" + webView.getRotation() + " (" + viewWidth + " x " + viewHeight);
+            Toast.makeText(WebActivity.this, "屏幕尺寸：" + viewWidth + " x " + viewHeight, Toast.LENGTH_LONG).show();
 
             if (angle == 0) {
                 webViewContainer.setRotation(0);
